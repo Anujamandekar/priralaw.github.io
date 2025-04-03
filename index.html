@@ -3,72 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Under Construction</title>
+    <title>Coming Soon</title>
     <style>
-        /* Basic Reset */
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-        }
-
-        /* Dark background */
-        body {
-            background-color: #2C2C2C; /* Dark gray background (can also use #000000 for black) */
-            color: #F5F5DC; /* Beige/cream color for text */
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
+            height: 100vh;
+            background: linear-gradient(to bottom, #6d6d6d, #a0a0a0); /* Dark grey gradient background */
+            color: white;
             text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
-
-        /* Styling the container */
         .container {
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px;
-            background-color: #3E3E3E; /* Slightly lighter background for the content box */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
         }
-
         h1 {
-            font-size: 48px;
-            color: #F5F5DC; /* Cream color for the main heading */
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white;
+            display: inline-block;
+            animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
         }
-
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
         p {
-            font-size: 20px;
-            color: #F5F5DC; /* Same cream color for paragraphs */
-            margin-bottom: 20px;
+            font-size: 1.2em;
         }
-
-        .contact {
-            font-size: 18px;
-            color: #F5F5DC; /* Cream color for contact info */
-        }
-
         a {
-            color: #F5F5DC; /* Link color same as text */
+            color: lightblue;
             text-decoration: none;
+            transition: all 0.3s;
         }
-
         a:hover {
-            text-decoration: underline;
+            text-shadow: 0 0 10px lightblue;
+        }
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            background: white;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Website Under Construction</h1>
-        <p>We are currently upgrading our website. Thank you for your patience and understanding.</p>
-
-        <div class="contact">
-            <p>In the meantime, feel free to contact us at <a href="mailto:priralawassociates@gmail.com">priralawassociates@gmail.com</a> for any inquiries.</p>
-        </div>
+        <h1>Don't Worry, The New Site Is Almost Done.</h1>
+        <p>Feel free to reach out to us at <a href="mailto:priralawassociates@gmail.com">priralawassociates@gmail.com</a></p>
     </div>
-
+    
+    <script>
+        // Generate floating particles
+        for (let i = 0; i < 20; i++) {
+            let particle = document.createElement("div");
+            particle.className = "particle";
+            document.body.appendChild(particle);
+            particle.style.left = Math.random() * 100 + "vw";
+            particle.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            particle.style.animationDelay = (Math.random() * 2) + "s";
+        }
+    </script>
 </body>
 </html>
